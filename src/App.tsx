@@ -1,25 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TheEye from "./components/the-eye";
+import PassField from "./components/pass-field";
 
 function App() {
+    const [isFocused,setIsFocused] = useState<boolean>(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div id="main-container">
+          <TheEye isFocused={isFocused}></TheEye>
+          <PassField onFocusChange={setIsFocused}></PassField>
+      </div>
   );
 }
 
